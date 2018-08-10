@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+  <meta content=always name=referrer>
+	<title>DEMO页面</title>
+
+	<link rel="stylesheet" href="{{ url_for('static',filename='pagestyle.css') }}">
+	<link rel="stylesheet" href="{{url_for('static',filename='bootstrap/css/bootstrap.min.css')}}">
+	<script src="{{url_for('static',filename='bootstrap/js/jquery.min.js')}}"></script>
+	<script src="{{url_for('static',filename='bootstrap/js/bootstrap.min.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static',filename='bootstrap/js/jquery-validation/jquery.validate.min.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static',filename='bootstrap/js/jquery-validation/messages_zh.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static',filename='bootstrap/js/vue-2.2.4.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static',filename='bootstrap/js/vue-resource.min.js')}}"></script>
+  <script src="{{url_for('static',filename='js/common.js')}}"></script>
+  <script src="{{url_for('static',filename='js/index.js')}}"></script>
+</head>
+<body>
+     <div class="header">
+        <div class="header_bottom">
+       		<ul>
+                 
+     		 </ul>  
+        </div>       
+     </div>
+
+     <div class="containbody">
+      <a class="button-sm stu-add">新增</a>
+        <div class="table datalist" >
+         <img src="{{ url_for('.static',filename='images/listheader.png')}}" class="tableimage">
+         <p class="table-title">列表</p>
+         <table class="table-content">
+          <thead>
+               <tr>
+                    <th>序号</th>
+                    <th>学号</th>
+                    <th>姓名</th>
+                    <th>年龄</th>
+                    <th>操作</th>
+               </tr>
+          </thead>
+          <tbody>
+               <tr v-for="(dataone,key) in listdata"
+                   v-bind:s-id="dataone.id">
+                    <td v-text="key+1"></td>
+                    <td v-text="dataone.id"></td>
+                    <td v-text="dataone.name"></td>
+                    <td v-text="dataone.age"></td> 
+                    <td class="operation">
+                      <a class="update">更新</a>
+                      <a class="remove" >移除</a>
+                    </td>  
+               </tr>
+          </tbody> 
+          </table>
+      </div>
+     </div>
+
+     <div class="footer">
+          <p><a href="#">关于我们</a>| <a href="#">网站地图</a> |<a href="#">联系我们</a> |<a href="#">法律声明</a> |<a href="#">电子邮件</a></p>
+          <p>Copyright &copy; 2016－2017 www.xxx.com All Rights Reserved 版权所有</p>  
+     </div>
+     
+  <div class="modal fade" id="addData" tabindex="-1" role="dialog"
+         aria-labelledby="addModalLabel" aria-hidden="true"
+         data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" style="width: 556px">
+      <div class="modal-content">
+        <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal"
+          aria-label="Close">
+          <span aria-hidden="true">&nbsp;&nbsp;&nbsp;</span>
+         </button>
+         <h4 class="modal-title modalT"></h4>
+        </div>
+       <div class="modal-body data-body" style="height:209px;">
+          <form action="" id="edit-form" method="post">
+            <div class="form-group" style="margin-top: 15px;">
+              <label class="col-sm-2 control-label " index="id">学号
+               <img src="../static/images/icn_important.png" class="required" />
+              </label>
+              <input type="number" min="0" class="form-control" name="id"
+                id="id">
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label " index="sname">姓名
+               <img src="../static/images/icn_important.png" class="required" />
+              </label>
+              <input type="text" class="form-control" name="sname"
+                id="sname">
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label " index="age">年龄
+               <img src="../static/images/icn_important.png" class="required" />
+              </label>
+              <input type="number" min="1" class="form-control" name="age"
+                id="age">
+            </div>
+            <input type="text" class="hidden"  id="Tid">
+          </form>
+       </div>
+       <div class="modal-footer">
+          <button type="button" class="btn btn-primary modal-submit data-submit">确定</button>
+          <button type="button" class="btn btn-default modal-cancle" data-dismiss="modal">取消</button>
+       </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="warn-modal" tabindex="-1" role="dialog"
+  aria-hidden="true" data-backdrop="static" style="z-index: 10000;">
+   <div class="modal-dialog dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"
+          aria-hidden="true">&nbsp;&nbsp;&nbsp;</button>
+        <h4 class="modal-title">警告</h4>
+      </div>
+      <div class="modal-body">
+        <img src="../static/images/icn_dialog_warn.png"> <span></span>
+      </div>
+      <div class="modal-footer">
+        <span class="error"></span>
+        <button type="button" class="btn btn-default modal-cancle" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary modal-submit dialog-warn-button">确定</button>
+      </div>
+
+    </div>
+   </div>
+  </div>
+
+
+
+</body>
+</html>
