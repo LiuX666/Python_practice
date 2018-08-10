@@ -15,8 +15,8 @@ app = Flask(__name__)
 @app.route('/loginImgCheck')
 def checkLogin():
     img, code = random_check_code()
-    img.save('idencode.png')
-    img.show()
+    #img.save('idencode.png')
+    #img.show()
     stream = BytesIO()
     img.save(stream, 'png')
     session['code'] = code
