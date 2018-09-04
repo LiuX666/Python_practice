@@ -18,5 +18,5 @@ TimePracticeDemo
      创建token验证
      
    flask_cas
-     基于flask的cas验证
+     基于flask的cas单点登录
    
