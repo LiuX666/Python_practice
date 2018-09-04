@@ -13,4 +13,10 @@ TimePracticeDemo
    
  searchSuggest
     搜索下拉提示，基于后台提供数据，建立数据结构(前缀树)，用户输入查询前缀时，可以提示对应前缀补全
+    
+  pyToken
+     创建token验证
+     
+   flask_cas
+     基于flask的cas验证
    
