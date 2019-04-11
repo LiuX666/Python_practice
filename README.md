@@ -20,7 +20,9 @@ TimePracticeDemo
    flask_cas
      基于flask的cas单点登录
    
-   emailIn.py 邮件demo
+   email 邮件demo
+   
+   AesCrypt 加密解密  
 
    
    
